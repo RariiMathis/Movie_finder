@@ -27,4 +27,5 @@ class Actor:
         return actor_instance
 
 
-    
+    def __repr__( self ):
+        return f'<Actor id: {self.id} name: {self.name} Age: {self.age} Origin: {self.origin} Oscars: {self.oscars}>'
