@@ -1,22 +1,31 @@
 from models.__init__ import CURSOR, CONN
 
 class Movie:
-    all = []
+    # all = []
     
-    def __init__(self, title, actor, director, year id = None):
+    def __init__(self, title, genre, year, made, id = None):
         self.title = title
-        self.actor = actor
-        self.director = director
+        self.genre = genre
+        self.made = made
         self.year = year
         self.id = id 
-        Movie.all.append(self)
+        # Movie.all.append(self)
         
-    def all_movies(self):
-        return [movie for movie in Movie.all]
+    # def all_movies(self):
+    #     return [movie for movie in Movie.all]
     
     @classmethod
     def all(cls):
-        sql = 'Select * FROM movies'
-        list_of_tuples = CURSOR.execite(sql).fetchall()
+        sql = 'Select * FROM movie'
+        list_of_tuples = CURSOR.execute(sql).fetchall()
         return [Movie.from_db(row) for row in list_of_tuples]
+
+    @classmethod
+    def from_db( cls, row_tuple ):
+        movie_instance = Movie( row_tuple[1], row_tuple[2], row_tuple[3], row_tuple[4], row_tuple[5] )
+        movie_instance.id = row_tuple[0]
+        return movie_instance
+
+    def __repr__(self):
+        return f'<Id: {self.id} Title: {self.title} Genre: {self.genre} Year: {self.year} Made: {self.made}>'
         
