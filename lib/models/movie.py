@@ -16,9 +16,19 @@ class Movie:
     
     @classmethod
     def all(cls):
+        result = f""
         sql = 'Select * FROM movie'
         list_of_tuples = CURSOR.execute(sql).fetchall()
-        return [Movie.from_db(row) for row in list_of_tuples]
+        movie_list = [Movie.from_db(row) for row in list_of_tuples]
+        for movie_inst in movie_list:
+            result += f"Movie's id:{movie_inst.id}\n"
+            result += f"Title:{movie_inst.title}\n"
+            result += f"Genre:{movie_inst.genre}\n"
+            result += f"Made by:{movie_inst.made}\n"
+            result += f"Year:{movie_inst.year}\n"
+            result+= f"\n"
+            
+        return result
 
     @classmethod
     def from_db( cls, row_tuple ):

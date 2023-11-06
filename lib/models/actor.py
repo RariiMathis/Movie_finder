@@ -16,10 +16,17 @@ class Actor:
 
     @classmethod
     def all(cls):
+        result = f''
         sql = 'Select * FROM actors'
         list_of_tuples = CURSOR.execute(sql).fetchall()
-        return [Actor.from_db(row) for row in list_of_tuples]
-
+        actor_list = [Actor.from_db(row) for row in list_of_tuples]
+        for label in actor_list:
+            result +=  f'actor\'s id:{label.id}\n'
+            result+= f'Name:{label.name}\n'
+            result+= f'Origin:{label.origin}\n'
+            result+= f'Oscars:{label.oscars}\n'
+            result+= f'\n'
+        return result
     @classmethod
     def from_db( cls, row_tuple ):
         actor_instance = Actor( row_tuple[1], row_tuple[2], row_tuple[3], row_tuple[4] )
