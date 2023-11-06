@@ -3,6 +3,7 @@
 
 from models.__init__ import CONN, CURSOR
 import ipdb
+from models.actors import Actors
 
 
 ipdb.set_trace()
