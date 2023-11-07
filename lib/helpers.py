@@ -15,3 +15,6 @@ def get_all_actors():
 
 def get_all_movies():
     print (Movie.all())
+
+def add_actor(choice):
+    print(Actor.add_actor(choice))
