@@ -2,7 +2,8 @@ from models.__init__ import CURSOR, CONN
 
 class Movie:
     # all = []
-    
+    input_counter = 0
+
     def __init__(self, title, genre, year, made, id = None):
         self.title = title
         self.genre = genre
@@ -43,6 +44,37 @@ class Movie:
         CURSOR.execute(sql,params_tuple)
         CONN.commit()
         # id = None
+
+
+    @classmethod
+    def add_movie(cls, choice):
+        if cls.input_counter == 0:
+            cls.val1 = choice
+            cls.input_counter += 1
+            return 'Title was added'
+        elif cls.input_counter == 1:
+            
+            cls.val2 = choice
+            cls.input_counter += 1
+            return 'Genre was added'
+        elif cls.input_counter == 2:
+            
+            cls.val3 = choice
+            cls.input_counter += 1
+            return 'Year was added'
+        elif cls.input_counter == 3:
+            
+            cls.val4 = choice
+            cls.input_counter += 1
+            return 'Made was added'    
+        elif cls.input_counter == 4:
+            
+            cls.val5 = choice
+            cls.input_counter = 0
+            input_sql = f'INSERT INTO movie (title, genre, year, made, rating) VALUES (?, ?, ?, ?,?);'
+            CURSOR.execute(input_sql, (cls.val1, cls.val2, cls.val3, cls.val4, cls.val5))
+            CONN.commit()
+            return 'Rating was added'
 
     def __repr__(self):
         return f'<Id: {self.id} Title: {self.title} Genre: {self.genre} Year: {self.year} Made: {self.made}>'

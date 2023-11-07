@@ -7,7 +7,8 @@ from helpers import (
     get_all_movies,
     delete_actor,
     delete_movie,
-    add_actor
+    add_actor,
+    add_movie
 )
 
 
@@ -19,7 +20,7 @@ def main():
             exit_program()
         elif choice == "1":
             get_all_actors()
-        elif choice == ":)":
+        elif choice == "2":
             get_all_movies()
         elif choice == "3":
             remove_actor()
@@ -27,6 +28,8 @@ def main():
             remove_movie()
         elif choice == '5':
              addActor()     
+        elif choice == '6':
+             addMovie()          
         else:
             print("Invalid choice")
 
@@ -38,6 +41,16 @@ def addActor():
             main()
         else:
             add_actor(choice)
+
+
+def addMovie():
+    while True:
+        menuAddMovie()
+        choice = input("> ")
+        if choice == "0":
+            main()
+        else:
+            add_movie(choice)
 
 def remove_actor():
     while True:
@@ -68,13 +81,17 @@ def menu():
     print("3. Delete Actor")
     print("4. Delete Movie")
     print("5. Add Actor")
-
+    print("6. Add Movie")
 
 def menuAddActor():
     print("Please select an option:")
     print("0. Exit the program")
     print('or start printing new actor')
 
+def menuAddMovie():
+    print("Please select an option:")
+    print("0. Exit the program")
+    print('or start printing new movie:title,genre,year,made,rating')
 
 if __name__ == "__main__":
     main()
