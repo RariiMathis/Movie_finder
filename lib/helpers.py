@@ -24,3 +24,6 @@ def delete_movie(choice):
 
 def add_actor(choice):
     print(Actor.add_actor(choice))
+
+def add_movie(choice):
+    print(Movie.add_movie(choice))
