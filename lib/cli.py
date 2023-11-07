@@ -9,7 +9,8 @@ from helpers import (
     delete_actor,
     delete_movie,
     add_actor,
-    add_movie
+    add_movie,
+    search_by_rating,
 )
 
 
@@ -32,7 +33,9 @@ def main():
         elif choice == '5':
              addActor()     
         elif choice == '6':
-             addMovie()          
+             addMovie()  
+        elif choice == "8":
+            find_by_rating()        
 
         else:
             print("Invalid choice")
@@ -72,7 +75,6 @@ def remove_actor():
         choice = input ("> Enter Actor ID to delete here or 0 to go back -->")
         if choice == "0":
             main()
-        # if choice == (self.id):
         delete_actor(choice)
 
 def remove_movie():
@@ -82,7 +84,18 @@ def remove_movie():
         choice = input ("> Enter Movie ID to delete here or 0 to go back -->")
         if choice == "0":
             main()
-        delete_movie(choice)        
+        delete_movie(choice) 
+
+def find_by_rating():
+    while True:
+        menu()
+        choice = input ("> Enter Movie Rating here or 0 to go back -->")
+        if choice == "0":
+            main()
+        print("searching")
+        search_by_rating(choice)
+
+
 
         
 
@@ -95,7 +108,8 @@ def menu():
     print("4. Delete Movie")
     print("5. Add Actor")
     print("6. Add Movie")
-    print("7. Search for Movies")
+    print("7. Search for Movies by Title")
+    print("8. Search by Rating")
 
 def menuAddActor():
     print("Please select an option:")

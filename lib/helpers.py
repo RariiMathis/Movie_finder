@@ -31,3 +31,6 @@ def add_movie(choice):
 def search_for_movies(choice):
     print(Movie.search_movies(choice))
 
+def search_by_rating(choice):
+    print(Movie.all_rating(choice))
+
