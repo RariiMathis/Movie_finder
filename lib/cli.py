@@ -5,6 +5,7 @@ from helpers import (
     helper_1,
     get_all_actors,
     get_all_movies,
+    search_movies,
     delete_actor,
     delete_movie,
     add_actor,
@@ -22,6 +23,8 @@ def main():
             get_all_actors()
         elif choice == "2":
             get_all_movies()
+        elif choice == "7" :
+            search_movies()    
         elif choice == "3":
             remove_actor()
         elif choice == "4":
@@ -30,6 +33,7 @@ def main():
              addActor()     
         elif choice == '6':
              addMovie()          
+
         else:
             print("Invalid choice")
 
@@ -82,11 +86,13 @@ def menu():
     print("4. Delete Movie")
     print("5. Add Actor")
     print("6. Add Movie")
+    print("7. Search for Movies")
 
 def menuAddActor():
     print("Please select an option:")
     print("0. Exit the program")
     print('or start printing new actor')
+
 
 def menuAddMovie():
     print("Please select an option:")

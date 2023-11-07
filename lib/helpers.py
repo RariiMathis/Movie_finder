@@ -27,3 +27,4 @@ def add_actor(choice):
 
 def add_movie(choice):
     print(Movie.add_movie(choice))
+
