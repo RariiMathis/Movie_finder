@@ -5,7 +5,7 @@ from helpers import (
     helper_1,
     get_all_actors,
     get_all_movies,
-    # search_movies,
+    search_for_movies,
     delete_actor,
     delete_movie,
     add_actor,
@@ -23,7 +23,9 @@ def main():
         elif choice == "1":
             get_all_actors()
         elif choice == "2":
-            get_all_movies()   
+            get_all_movies()
+        elif choice == "7" :
+            find_movies()    
         elif choice == "3":
             remove_actor()
         elif choice == "4":
@@ -32,7 +34,7 @@ def main():
              addActor()     
         elif choice == '6':
              addMovie()  
-        elif choice == "9":
+        elif choice == "8":
             find_by_rating()        
 
         else:
@@ -46,6 +48,15 @@ def addActor():
             main()
         else:
             add_actor(choice)
+            
+def find_movies():
+    while True:
+        menu()
+        choice = input ("Enter movie title for all movie information:")
+        if choice == "0":
+            main()
+        # if choice == (self.id):
+        search_for_movies(choice)
 
 
 def addMovie():
@@ -98,7 +109,7 @@ def menu():
     print("5. Add Actor")
     print("6. Add Movie")
     print("7. Search for Movies by Title")
-    print("9. Search by Rating")
+    print("8. Search by Rating")
 
 def menuAddActor():
     print("Please select an option:")
