@@ -32,7 +32,30 @@ class Actor:
         actor_instance.id = row_tuple[0]
         return actor_instance
 
-
+    @classmethod
+    def add_actor(cls, choice):
+        if cls.input_counter == 0:
+            cls.val1 = choice
+            cls.input_counter += 1
+            return 'Name was added'
+        elif cls.input_counter == 1:
+            print('Add age')
+            cls.val2 = choice
+            cls.input_counter += 1
+            return 'Age was added'
+        elif cls.input_counter == 2:
+            print('Add origin')
+            cls.val3 = choice
+            cls.input_counter += 1
+            return 'Origin was added'
+        elif cls.input_counter == 3:
+            print('Add number of Oscars')
+            cls.val4 = choice
+            cls.input_counter = 0
+            input_sql = f'INSERT INTO actors (name, age, origin, numberOfOscars) VALUES (?, ?, ?, ?);'
+            CURSOR.execute(input_sql, (cls.val1, cls.val2, cls.val3, cls.val4))
+            CONN.commit()
+            return 'Actor was added'
     @classmethod
     def delete(cls,id):
         sql = 'DELETE FROM actors Where id = ?'
