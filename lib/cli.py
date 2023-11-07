@@ -5,7 +5,8 @@ from helpers import (
     helper_1,
     get_all_actors,
     get_all_movies,
-    delete_actor
+    delete_actor,
+    delete_movie
 )
 
 
@@ -21,6 +22,8 @@ def main():
             get_all_movies()
         elif choice == "3":
             remove_actor()
+        elif choice == "4":
+            remove_movie()
         else:
             print("Invalid choice")
 
@@ -33,7 +36,15 @@ def remove_actor():
             main()
         # if choice == (self.id):
         delete_actor(choice)
-        
+
+def remove_movie():
+    while True:
+        menu()
+        get_all_movies()
+        choice = input ("> Enter Movie ID to delete here or 0 to go back -->")
+        if choice == "0":
+            main()
+        delete_movie(choice)        
 
         
 
@@ -43,6 +54,7 @@ def menu():
     print("1. List All Actors")
     print("2. List All Movies")
     print("3. Delete Actor")
+    print("4. Delete Movie")
 
 
 if __name__ == "__main__":
