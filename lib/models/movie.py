@@ -4,11 +4,12 @@ class Movie:
     # all = []
     input_counter = 0
     
-    def __init__(self, title, genre, year, made, id = None):
+    def __init__(self, title, genre, year, made, rating, id = None):
         self.title = title
         self.genre = genre
         self.made = made
         self.year = year
+        self.rating = rating
         self.id = id 
         # Movie.all.append(self)
         
