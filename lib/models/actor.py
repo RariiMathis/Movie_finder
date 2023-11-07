@@ -12,8 +12,6 @@ class Actor:
         self.id = id
         # Actor.all.append(self)
 
-
-
     @classmethod
     def all(cls):
         result = f''
@@ -27,13 +25,34 @@ class Actor:
             result+= f'Oscars:{label.oscars}\n'
             result+= f'\n'
         return result
+        
     @classmethod
     def from_db( cls, row_tuple ):
         actor_instance = Actor( row_tuple[1], row_tuple[2], row_tuple[3], row_tuple[4] )
         actor_instance.id = row_tuple[0]
         return actor_instance
 
-    
+
+    @classmethod
+    def delete(cls,id):
+        sql = 'DELETE FROM actors Where id = ?'
+        params_tuple = (id,)
+        CURSOR.execute(sql,params_tuple)
+        CONN.commit()
+        # id = None
+
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, new_name):
+        if not hasattr(self, "_name"):
+            if isinstance(new_name, str) and len(new_name)>1:
+                self._name = new_name
+
+                # // need return?
 
 
     def __repr__( self ):

@@ -6,5 +6,6 @@ import ipdb
 from models.actor import Actor
 from models.movie import Movie
 
+a1 = Actor ("Keanue Reeves", 59,"Beirut,Lebanon",0,1)
 
 ipdb.set_trace()

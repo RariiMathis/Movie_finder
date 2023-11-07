@@ -15,3 +15,6 @@ def get_all_actors():
 
 def get_all_movies():
     print (Movie.all())
+
+def delete_actor(choice):
+    Actor.delete(choice)
