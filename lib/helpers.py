@@ -18,3 +18,6 @@ def get_all_movies():
 
 def delete_actor(choice):
     Actor.delete(choice)
+
+def delete_movie(choice):
+    Movie.delete_movie(choice)

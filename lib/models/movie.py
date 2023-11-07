@@ -36,8 +36,13 @@ class Movie:
         movie_instance.id = row_tuple[0]
         return movie_instance
 
-    # def delete(self):
-    #     sql = 
+    @classmethod
+    def delete_movie(cls,id):
+        sql = 'DELETE FROM movie Where id = ?'
+        params_tuple = (id,)
+        CURSOR.execute(sql,params_tuple)
+        CONN.commit()
+        # id = None
 
     def __repr__(self):
         return f'<Id: {self.id} Title: {self.title} Genre: {self.genre} Year: {self.year} Made: {self.made}>'
