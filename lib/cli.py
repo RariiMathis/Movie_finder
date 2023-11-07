@@ -86,7 +86,7 @@ def menu():
 def menuAddActor():
     print("Please select an option:")
     print("0. Exit the program")
-    print('or start printing new actor')
+    print('or start printing new actor:Name,Age,Origin,Num Of Oscars')
 
 def menuAddMovie():
     print("Please select an option:")
