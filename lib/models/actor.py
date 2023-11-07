@@ -3,6 +3,7 @@ from models.__init__ import CURSOR, CONN
 
 class Actor:
     # all = []
+    input_counter = 0
 
     def __init__(self, name, age, origin, oscars, id = None):
         self.name = name
