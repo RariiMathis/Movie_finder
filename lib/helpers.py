@@ -27,4 +27,7 @@ def add_actor(choice):
 
 def add_movie(choice):
     print(Movie.add_movie(choice))
+    
+def search_for_movies(choice):
+    print(Movie.search_movies(choice))
 
