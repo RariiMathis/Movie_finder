@@ -57,6 +57,7 @@ class Actor:
             CURSOR.execute(input_sql, (cls.val1, cls.val2, cls.val3, cls.val4))
             CONN.commit()
             return 'Actor was added'
+            
     @classmethod
     def delete(cls,id):
         sql = 'DELETE FROM actors Where id = ?'

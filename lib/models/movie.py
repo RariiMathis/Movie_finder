@@ -31,6 +31,22 @@ class Movie:
         return result
 
     @classmethod
+    def all_rating(cls,rating):
+        result = f""
+        sql = 'Select * FROM movie where rating =?'
+        list_of_tuples = CURSOR.execute(sql,(rating,)).fetchall()
+        movie_list = [Movie.from_db(row) for row in list_of_tuples]
+        for movie_inst in movie_list:
+            result += f"Movie's id:{movie_inst.id}\n"
+            result += f"Title:{movie_inst.title}\n"
+            result += f"Genre:{movie_inst.genre}\n"
+            result += f"Made by:{movie_inst.made}\n"
+            result += f"Year:{movie_inst.year}\n"
+            result+= f"\n"
+            
+        return result
+
+    @classmethod
     def from_db( cls, row_tuple ):
         movie_instance = Movie( row_tuple[1], row_tuple[2], row_tuple[3], row_tuple[4], row_tuple[5] )
         movie_instance.id = row_tuple[0]
