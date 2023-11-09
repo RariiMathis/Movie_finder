@@ -36,4 +36,9 @@ Actors <------(Roles)------>  Movies
 ## Stretch Goal:
 Recommend movie to the user
 
+## How to start App:
 
+Type in the Terminal pipenv to open the python environment. After that install type in the terminal pipenv shell after this is install last step in the same terminal type python lib/cli.py the user now have the ability to filiter through the results in the database.
+
+
+![menu](https://github.com/RariiMathis/Movie_finder/assets/141261067/7666c14d-d1c5-4cb5-8072-74cdcdb4ca3a)
