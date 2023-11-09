@@ -27,6 +27,7 @@ class Movie:
             result += f"Title:{movie_inst.title}\n"
             result += f"Genre:{movie_inst.genre}\n"
             result += f"Made by:{movie_inst.made}\n"
+            result += f"Rating:{movie_inst.rating}\n"
             result += f"Year:{movie_inst.year}\n"
             result+= f"\n"
             
