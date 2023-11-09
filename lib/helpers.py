@@ -2,8 +2,7 @@
 from models.actor import Actor
 from models.movie import Movie
 
-def helper_1():
-    print("Performing useful function#1.")
+
 
 
 def exit_program():

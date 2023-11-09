@@ -2,7 +2,6 @@
 import os
 from helpers import (
     exit_program,
-    helper_1,
     get_all_actors,
     get_all_movies,
     search_for_movies,
@@ -64,7 +63,7 @@ def find_movies():
         choice = input ("Enter movie title for all movie information:")
         if choice == "0":
             main()
-        # if choice == (self.id):
+        
         search_for_movies(choice)
 
 
@@ -100,8 +99,9 @@ def find_by_rating():
         menu()
         choice = input ("> Enter Movie Rating here or 0 to go back -->")
         if choice == "0":
+            
             main()
-        print("searching")
+        print("\n searching... \n")
         search_by_rating(choice)
 
 

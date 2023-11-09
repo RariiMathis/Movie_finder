@@ -2,7 +2,7 @@ from models.__init__ import CURSOR, CONN
 
 
 class Actor:
-    # all = []
+    
     input_counter = 0
 
     def __init__(self, name, age, origin, oscars, id = None):
@@ -11,7 +11,7 @@ class Actor:
         self.origin = origin
         self.oscars = oscars
         self.id = id
-        # Actor.all.append(self)
+      
 
     @classmethod
     def all(cls):
@@ -63,7 +63,7 @@ class Actor:
         params_tuple = (id,)
         CURSOR.execute(sql,params_tuple)
         CONN.commit()
-        # id = None
+       
 
 
     @property
@@ -76,7 +76,7 @@ class Actor:
             if isinstance(new_name, str) and len(new_name)>1:
                 self._name = new_name
 
-                # // need return?
+              
 
 
     def __repr__( self ):

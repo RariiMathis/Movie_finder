@@ -1,7 +1,7 @@
 from models.__init__ import CURSOR, CONN
 
 class Movie:
-    # all = []
+    
     input_counter = 0
     
     def __init__(self, title, genre, year, made, rating, id = None):
@@ -11,11 +11,7 @@ class Movie:
         self.year = year
         self.rating = rating
         self.id = id 
-        # Movie.all.append(self)
-        
-    # def all_movies(self):
-    #     return [movie for movie in Movie.all]
-    
+     
     @classmethod
     def all(cls):
         result = f""
@@ -57,20 +53,20 @@ class Movie:
     
     @classmethod
     def search_movies(cls, title):
-        result = f""
+        result = f"\n"
         sql = 'SELECT * FROM movie WHERE title = ?'
         list_of_tuples = CURSOR.execute(sql, (title,)).fetchall()
         movies_list = [Movie.from_db(row) for row in list_of_tuples]
         for movie_inst in movies_list:
             result += f"Title:{movie_inst.title}\n"
+            result += f"Genre:{movie_inst.genre}\n"
             result += f"Made by:{movie_inst.made}\n"
             result += f"Year:{movie_inst.year}\n"
             result += "\n"
             
         return result
         
-    # @classmethod
-   
+ 
             
 
     @classmethod
@@ -79,7 +75,7 @@ class Movie:
         params_tuple = (id,)
         CURSOR.execute(sql,params_tuple)
         CONN.commit()
-        # id = None
+        
 
 
     @classmethod
