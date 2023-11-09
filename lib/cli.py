@@ -1,5 +1,5 @@
 # lib/cli.py
-
+import os
 from helpers import (
     exit_program,
     helper_1,
@@ -19,22 +19,31 @@ def main():
         menu()
         choice = input("> ")
         if choice == "0":
+            os.system('clear')
             exit_program()
         elif choice == "1":
+            os.system('clear')
             get_all_actors()
         elif choice == "2":
+            os.system('clear')
             get_all_movies()
         elif choice == "7" :
+            os.system('clear')
             find_movies()    
         elif choice == "3":
+            os.system('clear')
             remove_actor()
         elif choice == "4":
+            os.system('clear')
             remove_movie()
         elif choice == '5':
+             os.system('clear')
              addActor()     
         elif choice == '6':
+             os.system('clear')
              addMovie()  
         elif choice == "8":
+            os.system('clear')
             find_by_rating()        
 
         else:
@@ -44,7 +53,7 @@ def addActor():
     while True:
         menuAddActor()
         choice = input("> ")
-        if choice == "0":
+        if choice == ".exit":
             main()
         else:
             add_actor(choice)
@@ -63,7 +72,7 @@ def addMovie():
     while True:
         menuAddMovie()
         choice = input("> ")
-        if choice == "0":
+        if choice == ".exit":
             main()
         else:
             add_movie(choice)
@@ -113,13 +122,13 @@ def menu():
 
 def menuAddActor():
     print("Please select an option:")
-    print("0. Exit the program")
+    print(".exit Exit the program")
     print('or start printing new actor:Name,Age,Origin,Num Of Oscars')
 
 
 def menuAddMovie():
     print("Please select an option:")
-    print("0. Exit the program")
+    print(".exit Exit the program")
     print('or start printing new movie:title,genre,year,made,rating')
 
 if __name__ == "__main__":
